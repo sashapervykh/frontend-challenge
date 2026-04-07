@@ -1,0 +1,13 @@
+.nav-link {
+  display: flex;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 0px 1.7em;
+  height: 100%;
+  align-items: center;
+}
+
+.nav-link__active {
+  background-color: #1e88e5;
+  color: rgba(255, 255, 255);
+}

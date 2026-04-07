@@ -1,16 +1,12 @@
-import { NavLink } from "react-router";
 import styles from "./AppHeader.module.css";
 import { ROUTES } from "../../../shared/constants/routes";
+import { NavAppLink } from "../NavAppLink/NavAppLink";
 
 export function AppHeader() {
   return (
     <header className={styles.header}>
-      <NavLink to={ROUTES.MAIN} className={`${styles["nav-link"]} ${styles["nav-link__active"]}`}>
-        Все котики
-      </NavLink>
-      <NavLink to={ROUTES.FAVORITES} className={styles["nav-link"]}>
-        Любимые котики
-      </NavLink>
+      <NavAppLink to={ROUTES.MAIN} text="Все котики" />
+      <NavAppLink to={ROUTES.FAVORITES} text="Любимые котики" />
     </header>
   );
 }
