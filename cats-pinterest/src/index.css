@@ -1,0 +1,11 @@
+body {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0px auto;
+}
+
+#root {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
