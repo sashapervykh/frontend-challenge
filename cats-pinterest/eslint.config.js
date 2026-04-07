@@ -3,6 +3,8 @@ import globals from "globals";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import tseslint from "typescript-eslint";
+import eslintConfigPrettier from "eslint-config-prettier/flat";
+import react from "eslint-plugin-react";
 import { defineConfig, globalIgnores } from "eslint/config";
 
 export default defineConfig([
@@ -14,10 +16,23 @@ export default defineConfig([
       tseslint.configs.recommended,
       reactHooks.configs.flat.recommended,
       reactRefresh.configs.vite,
+      react.configs.flat.recommended,
+      react.configs.flat["jsx-runtime"],
+      eslintConfigPrettier,
     ],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
+    },
+    settings: {
+      react: {
+        version: "detect",
+      },
+    },
+    rules: {
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
+      "@typescript-eslint/no-explicit-any": "error",
     },
   },
 ]);
