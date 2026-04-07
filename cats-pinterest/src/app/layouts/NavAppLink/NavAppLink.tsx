@@ -7,10 +7,13 @@ interface Props {
 }
 
 export function NavAppLink({ text, to }: Props) {
-  const notActiveStyle = styles["nav-link"];
-  const activeStyle = `${styles["nav-link"]} ${styles["nav-link__active"]}`;
   return (
-    <NavLink to={to} className={({ isActive }) => (isActive ? activeStyle : notActiveStyle)}>
+    <NavLink
+      to={to}
+      className={({ isActive }) =>
+        `${styles["nav-link"]} ${isActive ? styles["nav-link__active"] : ""}`
+      }
+    >
       {text}
     </NavLink>
   );
