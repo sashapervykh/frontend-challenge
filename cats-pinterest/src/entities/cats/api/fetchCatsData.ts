@@ -1,3 +1,5 @@
+import { catsListSchema } from "../model/schemas/catsListSchema";
+
 const url = import.meta.env.VITE_API_URL;
 const key = import.meta.env.VITE_API_KEY;
 
@@ -7,5 +9,6 @@ export async function fetchCatsData() {
     { method: "GET", headers: { "Content-Type": "application/json", "x-api-key": key } },
   );
   const data = await response.json();
-  console.log(data);
+  const typedData = catsListSchema.parse(data);
+  return typedData;
 }
