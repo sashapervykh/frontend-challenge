@@ -8,7 +8,7 @@ interface Props {
 
 export function CatsList({ cats }: Props) {
   return (
-    <section className={styles.wrapper}>
+    <section className={styles.section}>
       <div className={styles.list}>
         {cats.map((cat) => (
           <CatCard key={cat.id} {...cat} />

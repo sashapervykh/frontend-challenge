@@ -1,7 +1,7 @@
 import { HashRouter, Navigate, Route, Routes } from "react-router";
 import { MainPage } from "../../pages/MainPage/MainPage";
 import { FavoritesPage } from "../../pages/FavoritesPage/FavoritesPage";
-import { AppLayout } from "../layouts/AppLayout";
+import { AppLayout } from "../layouts/AppLayout/AppLayout";
 import { ROUTES } from "../../shared/constants/routes";
 
 export function AppRouter() {
