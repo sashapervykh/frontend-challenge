@@ -5,7 +5,7 @@ import styles from "./CatCard.module.css";
 export function CatCard({ id, url }: Cat) {
   return (
     <div className={styles.card}>
-      <img className={styles.image} src={url} alt={`Image of cat named ${id}`} />
+      <img className={styles.image} src={url} loading="lazy" alt={`Image of cat named ${id}`} />
       <FavoriteButton id={id} url={url} />
     </div>
   );
