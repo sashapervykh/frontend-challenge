@@ -5,6 +5,7 @@ import styles from "./FavoriteButton.module.css";
 export function FavoriteButton({ id, url }: Cat) {
   const { checkIsFavorite, addToFavorites, removeFromFavorites } = useFavoriteCats();
   const isFavorite = checkIsFavorite(id);
+  const iconStyle = isFavorite ? styles.icon__favorite : styles.icon;
   const handleClick = () => {
     return isFavorite ? removeFromFavorites(id) : addToFavorites({ id, url });
   };
@@ -22,7 +23,7 @@ export function FavoriteButton({ id, url }: Cat) {
           fill="#F24E1E"
         />
         <path
-          className={styles["icon-back"]}
+          className={iconStyle}
           d="M20 36.7L17.1 34.06C6.8 24.72 0 18.56 0 11C0 4.84 4.84 0 11 0C14.48 0 17.82 1.62 20 4.18C22.18 1.62 25.52 0 29 0C35.16 0 40 4.84 40 11C40 18.56 33.2 24.72 22.9 34.08L20 36.7Z"
         />
       </svg>

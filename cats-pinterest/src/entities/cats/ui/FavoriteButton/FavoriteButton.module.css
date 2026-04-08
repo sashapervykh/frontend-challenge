@@ -9,6 +9,7 @@
   cursor: pointer;
 }
 
-.button:hover .icon-back {
+.icon__favorite,
+.button:hover .icon {
   fill: #f24e1e;
 }
