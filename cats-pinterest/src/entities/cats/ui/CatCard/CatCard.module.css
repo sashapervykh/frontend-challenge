@@ -1,12 +1,18 @@
 .card {
   display: flex;
+  position: relative;
   width: 100%;
   aspect-ratio: 1;
 }
 
 .card:hover {
   transform: scale(1.14);
-  transition: all 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+}
+
+.card:hover button {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .image {

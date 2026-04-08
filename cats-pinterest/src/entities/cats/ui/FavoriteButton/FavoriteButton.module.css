@@ -1,0 +1,14 @@
+.button {
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  right: 24px;
+  bottom: 24px;
+  cursor: pointer;
+}
+
+.button:hover .icon-back {
+  fill: #f24e1e;
+}
