@@ -5,6 +5,8 @@
 
 .list {
   display: grid;
-  grid-template-columns: repeat(5, 225px);
-  gap: 48px;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 225px));
+  gap: clamp(20px, 3.2vw, 47px);
+  justify-content: center;
 }
