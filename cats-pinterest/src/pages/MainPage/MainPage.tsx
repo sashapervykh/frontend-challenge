@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchCatsData } from "../../entities/cats/api/fetchCatsData";
 import type { CatsListType } from "../../entities/cats/model/types/CatsListType";
-import { CatCard } from "../../entities/cats/ui/CatCard/CatCard";
+import { CatsList } from "../../entities/cats/ui/CatsList/CatsList";
 
 export function MainPage() {
   const [catsList, setCatsList] = useState<CatsListType>([]);
@@ -13,11 +13,5 @@ export function MainPage() {
     getCatsList();
   }, []);
   if (catsList.length === 0) return "Data has not loaded";
-  return (
-    <section>
-      {catsList.map((cat) => (
-        <CatCard key={cat.id} {...cat} />
-      ))}
-    </section>
-  );
+  return <CatsList cats={catsList} />;
 }
