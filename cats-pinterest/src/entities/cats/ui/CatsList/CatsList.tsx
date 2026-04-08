@@ -8,10 +8,12 @@ interface Props {
 
 export function CatsList({ cats }: Props) {
   return (
-    <section className={styles.list}>
-      {cats.map((cat) => (
-        <CatCard key={cat.id} {...cat} />
-      ))}
+    <section className={styles.wrapper}>
+      <div className={styles.list}>
+        {cats.map((cat) => (
+          <CatCard key={cat.id} {...cat} />
+        ))}
+      </div>
     </section>
   );
 }
