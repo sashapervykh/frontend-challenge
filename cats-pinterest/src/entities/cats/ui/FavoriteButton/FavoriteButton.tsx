@@ -1,8 +1,15 @@
+import { useFavoriteCats } from "../../model/contexts/useFavoriteCats";
+import type { Cat } from "../../model/types/Cat";
 import styles from "./FavoriteButton.module.css";
 
-export function FavoriteButton() {
+export function FavoriteButton({ id, url }: Cat) {
+  const { checkIsFavorite, addToFavorites, removeFromFavorites } = useFavoriteCats();
+  const isFavorite = checkIsFavorite(id);
+  const handleClick = () => {
+    return isFavorite ? removeFromFavorites(id) : addToFavorites({ id, url });
+  };
   return (
-    <button className={styles.button} type="button">
+    <button className={styles.button} type="button" onClick={handleClick}>
       <svg
         width="40"
         height="37"

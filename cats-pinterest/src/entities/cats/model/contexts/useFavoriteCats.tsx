@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { FavoriteCatsContext } from "./FavroriteCats.context";
+import { FavoriteCatsContext } from "./FavoriteCats.context";
 
 export function useFavoriteCats() {
   const context = useContext(FavoriteCatsContext);

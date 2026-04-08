@@ -1,3 +1,10 @@
+import { useFavoriteCats } from "../../entities/cats/model/contexts/useFavoriteCats";
+import { CatsList } from "../../entities/cats/ui/CatsList/CatsList";
+
 export function FavoritesPage() {
-  return "Favorites Page";
+  const { favoriteCats } = useFavoriteCats();
+  if (!favoriteCats.length) {
+    return "No cats were added to favorites!";
+  }
+  return <CatsList cats={favoriteCats} />;
 }

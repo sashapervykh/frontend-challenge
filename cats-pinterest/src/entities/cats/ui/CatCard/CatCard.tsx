@@ -6,7 +6,7 @@ export function CatCard({ id, url }: Cat) {
   return (
     <div className={styles.card}>
       <img className={styles.image} src={url} alt={`Image of cat named ${id}`} />
-      <FavoriteButton />
+      <FavoriteButton id={id} url={url} />
     </div>
   );
 }

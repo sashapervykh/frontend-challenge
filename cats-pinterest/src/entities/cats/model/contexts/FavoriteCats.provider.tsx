@@ -1,5 +1,5 @@
 import { useEffect, useState, type ReactNode } from "react";
-import { FavoriteCatsContext } from "./FavroriteCats.context";
+import { FavoriteCatsContext } from "./FavoriteCats.context";
 import type { CatsListType } from "../types/CatsListType";
 import { getFavoriteCatsFromStorage } from "../../lib/getFavoriteCatsFromStorage";
 import { STORAGE_KEYS } from "../../../../shared/constants/storageKeys";
@@ -19,16 +19,16 @@ export function FavoriteCatsProvider({ children }: Props) {
     setFavoriteCats((c) => [...c, cat]);
   };
   const removeFromFavorites = (id: string) => {
-    setFavoriteCats((c) => [...c.filter((cat) => cat.id === id)]);
+    setFavoriteCats((c) => [...c.filter((cat) => cat.id !== id)]);
   };
-  const isFavorite = (id: string) => {
+  const checkIsFavorite = (id: string) => {
     return favoriteCats.some((cat) => cat.id === id);
   };
   const value = {
     favoriteCats,
     addToFavorites,
     removeFromFavorites,
-    isFavorite,
+    checkIsFavorite,
   };
   return <FavoriteCatsContext.Provider value={value}>{children}</FavoriteCatsContext.Provider>;
 }
