@@ -10,7 +10,12 @@ export function FavoriteButton({ id, url }: Cat) {
     return isFavorite ? removeFromFavorites(id) : addToFavorites({ id, url });
   };
   return (
-    <button className={styles.button} type="button" onClick={handleClick}>
+    <button
+      className={styles.button}
+      type="button"
+      onClick={handleClick}
+      aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
+    >
       <svg
         width="40"
         height="37"
