@@ -6,7 +6,7 @@ const key = import.meta.env.VITE_API_KEY;
 export async function fetchCatsData(page: number) {
   console.log(page);
   const response = await fetch(
-    `${url}?size=med&mime_types=jpg&format=json&order=RANDOM&page=0&limit=30&page=${page}`,
+    `${url}?size=med&mime_types=jpg&format=json&order=RANDOM&limit=30&page=${page}`,
     { method: "GET", headers: { "Content-Type": "application/json", "x-api-key": key } },
   );
   const data = await response.json();
