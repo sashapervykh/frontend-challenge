@@ -1,17 +1,15 @@
 import { catsListSchema } from "../model/schemas/catsListSchema";
-import { mockedData } from "./mockedData";
 
 const url = import.meta.env.VITE_API_URL;
 const key = import.meta.env.VITE_API_KEY;
 
-export async function fetchCatsData() {
-  // const response = await fetch(
-  //   `${url}?size=med&mime_types=jpg&format=json&order=ASC&page=0&limit=30`,
-  //   { method: "GET", headers: { "Content-Type": "application/json", "x-api-key": key } },
-  // );
-  // const data = await response.json();
-  const data = mockedData;
-  const typedData = catsListSchema.parse(data);
-  console.log(typedData);
+export async function fetchCatsData(page: number) {
+  console.log(page);
+  const response = await fetch(
+    `${url}?size=med&mime_types=jpg&format=json&order=RANDOM&page=0&limit=30&page=${page}`,
+    { method: "GET", headers: { "Content-Type": "application/json", "x-api-key": key } },
+  );
+  const data = await response.json();
+  const typedData = catsListSchema.parse(data).map((cat) => ({ ...cat, id: cat.id + Date.now() }));
   return typedData;
 }

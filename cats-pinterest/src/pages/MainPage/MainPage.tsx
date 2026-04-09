@@ -1,14 +1,20 @@
 import { CatsList } from "../../entities/cats/ui/CatsList/CatsList";
 import { useAllCats } from "../../entities/cats/model/hooks/useAllCats";
 import { TextMessage } from "../../shared/ui/TextMessage/TextMessage";
+import { LoadingMessage } from "../../entities/cats/ui/Loader/Loader";
 
 export function MainPage() {
-  const { allCats, loading } = useAllCats();
-  if (loading) {
-    return <TextMessage text={"... загружаем котиков для тебя ..."} />;
+  const { allCats, loading, sentinelRef, error, hasMore } = useAllCats();
+
+  if (error) {
+    return <TextMessage text={error} />;
   }
-  if (allCats.length === 0) {
-    return <TextMessage text={"Не удалось загрузить котиков. Попробуй еще раз позднее..."} />;
-  }
-  return <CatsList cats={allCats} />;
+  return (
+    <>
+      <CatsList cats={allCats} />
+      {loading && <LoadingMessage cats={allCats} />}
+      {hasMore && <div ref={sentinelRef} />}
+      {!hasMore && <TextMessage text={"Котики закончились(((("} />}
+    </>
+  );
 }
