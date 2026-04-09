@@ -1,9 +1,10 @@
 import { useEffect, useState, type ReactNode } from "react";
-import { FavoriteCatsContext } from "./FavoriteCats.context";
+
 import type { CatsListType } from "../types/CatsListType";
 import { getFavoriteCatsFromStorage } from "../../lib/getFavoriteCatsFromStorage";
 import { STORAGE_KEYS } from "../../../../shared/constants/storageKeys";
 import type { Cat } from "../types/Cat";
+import { FavoriteCatsContext } from "../contexts/FavoriteCats.context";
 
 interface Props {
   children: ReactNode;

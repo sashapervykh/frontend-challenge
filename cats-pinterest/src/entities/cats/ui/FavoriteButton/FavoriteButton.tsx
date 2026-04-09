@@ -1,9 +1,9 @@
-import { useFavoriteCats } from "../../model/hooks/useFavoriteCats";
+import { useFavoriteCatsContext } from "../../model/hooks/useFavoriteCats";
 import type { Cat } from "../../model/types/Cat";
 import styles from "./FavoriteButton.module.css";
 
 export function FavoriteButton({ id, url }: Cat) {
-  const { checkIsFavorite, addToFavorites, removeFromFavorites } = useFavoriteCats();
+  const { checkIsFavorite, addToFavorites, removeFromFavorites } = useFavoriteCatsContext();
   const isFavorite = checkIsFavorite(id);
   const iconStyle = isFavorite ? styles.icon__favorite : styles.icon;
   const handleClick = () => {

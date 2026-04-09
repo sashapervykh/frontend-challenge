@@ -1,10 +1,13 @@
-import { FavoriteCatsProvider } from "../entities/cats/model/contexts/FavoriteCats.provider";
+import { AllCatsProvider } from "../entities/cats/model/providers/AllCats.provider";
+import { FavoriteCatsProvider } from "../entities/cats/model/providers/FavoriteCats.provider";
 import { AppRouter } from "./routes/router";
 
 function App() {
   return (
     <FavoriteCatsProvider>
-      <AppRouter />
+      <AllCatsProvider>
+        <AppRouter />
+      </AllCatsProvider>
     </FavoriteCatsProvider>
   );
 }
