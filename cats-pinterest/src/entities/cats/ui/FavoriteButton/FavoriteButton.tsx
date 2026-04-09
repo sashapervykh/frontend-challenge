@@ -1,4 +1,4 @@
-import { useFavoriteCats } from "../../model/contexts/useFavoriteCats";
+import { useFavoriteCats } from "../../model/hooks/useFavoriteCats";
 import type { Cat } from "../../model/types/Cat";
 import styles from "./FavoriteButton.module.css";
 

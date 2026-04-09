@@ -1,4 +1,4 @@
-import { useFavoriteCats } from "../../entities/cats/model/contexts/useFavoriteCats";
+import { useFavoriteCats } from "../../entities/cats/model/hooks/useFavoriteCats";
 import { CatsList } from "../../entities/cats/ui/CatsList/CatsList";
 
 export function FavoritesPage() {
