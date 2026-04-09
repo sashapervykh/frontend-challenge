@@ -1,17 +1,9 @@
-import { useEffect, useState } from "react";
-import { fetchCatsData } from "../../entities/cats/api/fetchCatsData";
-import type { CatsListType } from "../../entities/cats/model/types/CatsListType";
 import { CatsList } from "../../entities/cats/ui/CatsList/CatsList";
+import { useAllCats } from "../../entities/cats/model/hooks/useAllCats";
 
 export function MainPage() {
-  const [catsList, setCatsList] = useState<CatsListType>([]);
-  useEffect(() => {
-    async function getCatsList() {
-      const data = await fetchCatsData();
-      setCatsList(data);
-    }
-    getCatsList();
-  }, []);
-  if (catsList.length === 0) return "Data has not loaded";
-  return <CatsList cats={catsList} />;
+  const { allCats, loading } = useAllCats();
+  if (loading) return "Fetching cats data";
+  if (allCats.length === 0) return "Data has not loaded";
+  return <CatsList cats={allCats} />;
 }
