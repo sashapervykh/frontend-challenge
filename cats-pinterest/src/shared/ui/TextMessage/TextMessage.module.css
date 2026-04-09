@@ -1,6 +1,6 @@
 .message {
   display: flex;
   width: fit-content;
-  max-width: 90vh;
+  max-width: 90vw;
   margin: 47px auto;
 }
