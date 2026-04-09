@@ -10,6 +10,6 @@ export async function fetchCatsData(page: number) {
     { method: "GET", headers: { "Content-Type": "application/json", "x-api-key": key } },
   );
   const data = await response.json();
-  const typedData = catsListSchema.parse(data).map((cat) => ({ ...cat, id: cat.id + Date.now() }));
+  const typedData = catsListSchema.parse(data);
   return typedData;
 }
