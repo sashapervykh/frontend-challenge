@@ -21,7 +21,7 @@ export function useAllCats() {
         }
         setAllCats((c) => [...c, ...catsData]);
       } catch {
-        if (allCats.length === 0) {
+        if (page === 0) {
           setError("Прозошла ошибка при загрузке котиков. Попробуй снова позже...");
           return;
         }
@@ -44,7 +44,6 @@ export function useAllCats() {
       }
       observerRef.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) {
-          setLoading(true);
           setPage((p) => p + 1);
         }
       });
