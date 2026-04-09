@@ -1,0 +1,6 @@
+.message {
+  display: flex;
+  width: fit-content;
+  max-width: 90vh;
+  margin: 47px auto;
+}
