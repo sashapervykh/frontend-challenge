@@ -20,7 +20,7 @@ export function FavoriteCatsProvider({ children }: Props) {
     setFavoriteCats((c) => [...c, cat]);
   };
   const removeFromFavorites = (id: string) => {
-    setFavoriteCats((c) => [...c.filter((cat) => cat.id !== id)]);
+    setFavoriteCats((c) => c.filter((cat) => cat.id !== id));
   };
   const checkIsFavorite = (id: string) => {
     return favoriteCats.some((cat) => cat.id === id);

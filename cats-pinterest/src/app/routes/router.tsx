@@ -9,7 +9,6 @@ const router = createHashRouter([
     path: ROUTES.MAIN,
     element: (
       <>
-        <ScrollRestoration />
         <AppLayout />
       </>
     ),
