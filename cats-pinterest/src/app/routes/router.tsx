@@ -1,4 +1,4 @@
-import { createHashRouter, RouterProvider, Navigate, ScrollRestoration } from "react-router";
+import { createHashRouter, RouterProvider, Navigate } from "react-router";
 import { MainPage } from "../../pages/MainPage/MainPage";
 import { FavoritesPage } from "../../pages/FavoritesPage/FavoritesPage";
 import { AppLayout } from "../layouts/AppLayout/AppLayout";
