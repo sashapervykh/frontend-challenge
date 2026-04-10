@@ -4,11 +4,13 @@ import { AppRouter } from "./routes/router";
 
 function App() {
   return (
-    <FavoriteCatsProvider>
-      <AllCatsProvider>
-        <AppRouter />
-      </AllCatsProvider>
-    </FavoriteCatsProvider>
+    <>
+      <FavoriteCatsProvider>
+        <AllCatsProvider>
+          <AppRouter />
+        </AllCatsProvider>
+      </FavoriteCatsProvider>
+    </>
   );
 }
 
