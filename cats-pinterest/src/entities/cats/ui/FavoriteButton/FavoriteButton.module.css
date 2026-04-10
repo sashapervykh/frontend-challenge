@@ -1,0 +1,15 @@
+.button {
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  right: 24px;
+  bottom: 24px;
+  cursor: pointer;
+}
+
+.icon__favorite,
+.button:hover .icon {
+  fill: #f24e1e;
+}
