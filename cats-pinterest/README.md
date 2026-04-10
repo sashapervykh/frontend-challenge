@@ -1,73 +1,81 @@
-# React + TypeScript + Vite
+# 🐱 Кошачий Пинтерест
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Веб-приложение для просмотра котиков с возможностью добавлять их в избранное. Реализовано с использованием [The Cat API](https://thecatapi.com/)
+🌐 Демо
+[Открыть приложение](https://sashapervykh.github.io/frontend-challenge/#/)
 
-Currently, two official plugins are available:
+## ✨ Функциональность
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Все котики — бесконечная лента котиков из Cat API
+- Избранное — добавляй и убирай котиков из избранного одним кликом
+- Сохранение — избранные котики сохраняются в localStorage между сессиями
+- Бесконечная прокрутка — новые котики подгружаются автоматически при прокрутке
+- Скелетон-загрузка — плавная анимация пока загружаются изображения
+- Обработка ошибок — корректное отображение при ошибке загрузки изображения
+- Адаптивная вёрстка — работает на любом размере экрана
 
-## React Compiler
+## 🛠️ Стек технологий
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19UI
+- TypeScript
+- Vite
+- React Router v7
+- Zod
+- CSS Modules
 
-## Expanding the ESLint configuration
+## 🚀 Запуск локально
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Предварительные требования
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Node.js 18+
+npm 9+
+API-ключ от The Cat API (бесплатно)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Установка
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+#### Клонировать репозиторий
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+#### Установить зависимости
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+npm install
+
+#### Настройка переменных окружения
+
+Создай файл .env в корне проекта:
+VITE_API_URL=https://api.thecatapi.com/v1/images/search
+VITE_API_KEY=your_api_key_here
+
+#### Запуск dev-сервера
+
+npm run dev
+Приложение будет доступно по адресу http://localhost:5173
+
+## 📦 Сборка и деплой
+
+### Сборка проекта
+
+npm run build
+Собранные файлы появятся в папке dist/.
+
+### Деплой на GitHub Pages
+
+npm run deploy
+Команда автоматически собирает проект и публикует его в ветку gh-pages.
+Убедись, что в vite.config.ts указано правильное имя репозитория:
+tsexport default defineConfig({
+base: '/your-repo-name/',
+})
+И в настройках репозитория GitHub Pages настроен на ветку gh-pages.
+
+## 📜 Доступные скрипты
+
+- npm run dev - запуск dev-сервера
+- npm run build - сборка для продакшна
+- npm run preview - предпросмотр собранного проекта
+- npm run lint - проверка кода линтером
+- npm run lint:fix - автоисправление ошибок линтера
+- npm run format - форматирование кода Prettier
+- npm run deploy - сборка и деплой на GitHub Pages
