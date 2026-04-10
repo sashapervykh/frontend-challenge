@@ -1,19 +1,34 @@
-import { HashRouter, Navigate, Route, Routes } from "react-router";
+import { createHashRouter, RouterProvider, Navigate } from "react-router";
 import { MainPage } from "../../pages/MainPage/MainPage";
 import { FavoritesPage } from "../../pages/FavoritesPage/FavoritesPage";
-import { AppLayout } from "../layouts/AppLayout";
+import { AppLayout } from "../layouts/AppLayout/AppLayout";
 import { ROUTES } from "../../shared/constants/routes";
 
+const router = createHashRouter([
+  {
+    path: ROUTES.MAIN,
+    element: (
+      <>
+        <AppLayout />
+      </>
+    ),
+    children: [
+      {
+        index: true,
+        element: <MainPage />,
+      },
+      {
+        path: ROUTES.FAVORITES,
+        element: <FavoritesPage />,
+      },
+    ],
+  },
+  {
+    path: "*",
+    element: <Navigate to="/" replace />,
+  },
+]);
+
 export function AppRouter() {
-  return (
-    <HashRouter>
-      <Routes>
-        <Route path={ROUTES.MAIN} element={<AppLayout />}>
-          <Route index element={<MainPage />} />
-          <Route path={ROUTES.FAVORITES} element={<FavoritesPage />} />
-        </Route>
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
-    </HashRouter>
-  );
+  return <RouterProvider router={router} />;
 }

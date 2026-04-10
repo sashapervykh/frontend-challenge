@@ -1,6 +1,12 @@
 .header {
   display: flex;
+  position: sticky;
+  top: 0;
+
   background-color: #2196f3;
   height: 64px;
   padding: 0 4.3%;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.24);
+  margin-bottom: 54px;
+  z-index: 10;
 }
